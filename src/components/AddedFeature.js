@@ -12,8 +12,6 @@ const AddedFeature = props => {
   );
 };
 
-// export default AddedFeature;
-
 const mapStateToProps = state => {
   return {
     additionalPrice: state.additionalPrice,
