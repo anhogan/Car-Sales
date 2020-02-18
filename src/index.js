@@ -8,6 +8,6 @@ import 'bulma/css/bulma.css';
 import './styles.scss';
 
 const rootElement = document.getElementById('root');
-ReactDOM.render(<Provider store={createStore(reducer)}>
+ReactDOM.render(<Provider store={createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())}>
     <App />
   </Provider>, rootElement);

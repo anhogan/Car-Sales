@@ -24,11 +24,10 @@ export function reducer(state = initialState, action) {
         ...state,
         additionalPrice: state.additionalPrice + action.payload.price,
         car: {
+          ...state.car,
           features: [
             ...state.car.features,
-            {
-              name: action.payload
-            }
+            action.payload
           ]
         }
       }
@@ -37,9 +36,10 @@ export function reducer(state = initialState, action) {
         ...state,
         additionalPrice: state.additionalPrice - action.payload.price,
         car: {
-          features: state.features.filter((item) => {
-            return !item
-          })
+          ...state.car,
+          features: state.features.filter((item) =>
+            item.id !== action.payload.id
+          )
         }
       }
     default:
