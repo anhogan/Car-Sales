@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-import { reducer, initialState } from './reducers/Reducer';
+import { reducer, initialState } from './reducers';
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
@@ -19,12 +19,12 @@ const App = () => {
   return (
     <div className="boxes">
       <div className="box">
-        <Header car={state.car} />
-        <AddedFeatures car={state.car} removeFeature={removeFeature} />
+        <Header />
+        <AddedFeatures removeFeature={removeFeature} />
       </div>
       <div className="box">
-        <AdditionalFeatures additionalFeatures={state.additionalFeatures} buyItem={buyItem} />
-        <Total car={state.car} additionalPrice={state.additionalPrice} />
+        <AdditionalFeatures buyItem={buyItem} />
+        <Total />
       </div>
     </div>
   );

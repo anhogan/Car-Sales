@@ -22,8 +22,8 @@ export function reducer(state = initialState, action) {
     case ADD_FEATURE:
       return {
         ...state,
+        additionalPrice: state.additionalPrice + action.payload.price,
         car: {
-          price: state.price + action.payload.price,
           features: [
             ...state.car.features,
             {
@@ -35,8 +35,8 @@ export function reducer(state = initialState, action) {
     case REMOVE_FEATURE:
       return {
         ...state,
+        additionalPrice: state.additionalPrice - action.payload.price,
         car: {
-          price: state.price - action.payload.price,
           features: state.features.filter((item) => {
             return !item
           })
