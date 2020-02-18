@@ -33,7 +33,15 @@ export function reducer(state = initialState, action) {
         }
       }
     case REMOVE_FEATURE:
-      return state
+      return {
+        ...state,
+        car: {
+          price: state.price - action.payload.price,
+          features: state.features.filter((item) => {
+            return !item
+          })
+        }
+      }
     default:
       return state;
   }
